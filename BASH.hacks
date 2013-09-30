@@ -1,0 +1,6 @@
+#
+# Find 'stuff' undef the current directory
+# (Omit the maxdepth to recursively search)
+#
+find . -maxdepth 1 | xargs grep -i 'stuff'
+
