@@ -1,0 +1,29 @@
+; tidyall - All-in-one code tidier and validator
+
+[PerlTidy]
+;
+; Current rules:
+;
+; -bl       Opening Braces Left
+; -sbl      Opening Sub Braces Left
+; -pt=1     Parentheses Tightness
+; -sbt=1    Square bracket tightness
+; -bvt=1    Brace-vertical-tightness
+; -asbl     Opening-anonymous-sub-brace-on-new-line.
+; -olc      Block Comment Indentation
+; -nolq     Do not outdent long quotes
+; -l=90     Max number of characters per line
+; -q        Run quietly
+;
+ignore = evenbase/perlcore/**/*
+select = **/*.{pl,pm,t}
+argv   = -bl -sbl -pt=1 -sbt=1 -bvt=1 -asbl -olc -nolq -l=90 -q
+ignore = evenbase/perlcore/**/*.{pl,pm,t}
+
+[PerlCritic]
+ignore = evenbase/perlcore/**/*
+select = **/*.{pl,pm}
+argv   = --stern
+
+;[PodTidy]
+; TODO
