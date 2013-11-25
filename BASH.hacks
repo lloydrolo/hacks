@@ -1,6 +1,9 @@
 #
-# Find 'stuff' undef the current directory
+# Find stuff under the current directory
 # (Omit the maxdepth to recursively search)
 #
-find . -maxdepth 1 | xargs grep -i 'stuff'
-
+alias find1='find . -maxdepth 1 | xargs grep -i -n'
+alias find2='find . -maxdepth 2 | xargs grep -i -n'
+alias find3='find . -maxdepth 3 | xargs grep -i -n'
+alias find4='find . -maxdepth 4 | xargs grep -i -n'
+alias findr='find . | xargs grep -i -n'
