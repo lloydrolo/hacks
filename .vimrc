@@ -18,8 +18,8 @@ map Q :q
 let perl_extended_vars = 1
 
 " Run perltidy on entire file
-map ,pt <ESC>:%! perltidy<CR>
-map ,ptv <ESC>:'<,'>! perltidy<CR>
+map ,pt <ESC>:%! perltidy -bl -sbl -pt=1 -sbt=1 -bvt=1 -asbl -olc -nolq -l=90 -q<CR>
+map ,ptv <ESC>:'<,'>! perltidy -bl -sbl -pt=1 -sbt=1 -bvt=1 -asbl -olc -nolq -l=90 -q<CR>
 
 " Deparse obfuscated code
 nnoremap <silent> _d :.!perl -MO=Deparse 2>/dev/null<cr>
