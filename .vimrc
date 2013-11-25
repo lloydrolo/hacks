@@ -15,6 +15,7 @@ autocmd FileType perl set showmatch
 " dont use Q for Ex mode
 map Q :q
 
+"highlight complex expressions such as @{[$x, $y]}
 let perl_extended_vars = 1
 
 " Run perltidy on entire file
