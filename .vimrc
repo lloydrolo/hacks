@@ -41,12 +41,18 @@ set viminfo^=%
 " Always show the status line
 set laststatus=2
 
+" Use '\jt' to JSON Tidy! (Requires JSON::XS)
+map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
+
+" JSON syntax highlighter (Requires json.vim plugin)
+au BufRead,BufNewFile *.json set filetype=json
+
+" Cucumber Given/When/Then syntax highlight plugin
 if exists("b:current_syntax")
     finish
 endif
 syn case match
 syn sync minlines=20
-
 let g:cucumber_languages = {
       \"en": {"and": "And\\>", "background": "Background\\>", "but": "But\\>", "examples": "Scenarios\\>\\|Examples\\>", "feature": "Business Need\\>\\|Feature\\>\\|Ability\\>", "given": "Given\\>", "scenario": "Scenario\\>", "scenario_outline": "Scenario Template\\>\\|Scenario Outline\\>", "then": "Then\\>", "when": "When\\>"},
       \"ar": {"and": "\\%u0648\\>", "background": "\\%u0627\\%u0644\\%u062e\\%u0644\\%u0641\\%u064a\\%u0629\\>", "but": "\\%u0644\\%u0643\\%u0646\\>", "examples": "\\%u0627\\%u0645\\%u062b\\%u0644\\%u0629\\>", "feature": "\\%u062e\\%u0627\\%u0635\\%u064a\\%u0629\\>", "given": "\\%u0628\\%u0641\\%u0631\\%u0636\\>", "scenario": "\\%u0633\\%u064a\\%u0646\\%u0627\\%u0631\\%u064a\\%u0648\\>", "scenario_outline": "\\%u0633\\%u064a\\%u0646\\%u0627\\%u0631\\%u064a\\%u0648 \\%u0645\\%u062e\\%u0637\\%u0637\\>", "then": "\\%u0627\\%u0630\\%u0627\\%u064b\\>\\|\\%u062b\\%u0645\\>", "when": "\\%u0639\\%u0646\\%u062f\\%u0645\\%u0627\\>\\|\\%u0645\\%u062a\\%u0649\\>"},
