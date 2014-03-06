@@ -1,4 +1,4 @@
-hacks
+.dotfiles
 =====
 
-Useful hacks that I use
+Lloyd's dot files
