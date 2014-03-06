@@ -1,13 +1,13 @@
 "
-" Simple .vimrc config
+" Lloyd's .vimrc config
 "
+set t_Co=256
 set expandtab
 set tabstop=4
 set shiftwidth=4
-
 set cmdheight=2
-syntax enable
 set encoding=utf8
+syntax enable
 
 " show matching brackets
 autocmd FileType perl set showmatch
@@ -46,6 +46,16 @@ map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
 
 " JSON syntax highlighter (Requires json.vim plugin)
 au BufRead,BufNewFile *.json set filetype=json
+
+"
+" Pathogen
+"
+execute pathogen#infect()
+
+"
+" tagbar
+"
+nmap <F8> :TagbarToggle<CR>
 
 " Cucumber Given/When/Then syntax highlight plugin
 if exists("b:current_syntax")
