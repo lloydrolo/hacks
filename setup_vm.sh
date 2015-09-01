@@ -46,3 +46,4 @@ echo "alias updatepc='http_proxy='http://10.10.10.200:8080' PERL5LIB= cpanm --ve
 echo "function perlmodver {" >> ~/.bashrc
 echo "    perl -M$1 -e 'print "Version " . $ARGV[0]->VERSION . " of " . $ARGV[0] . is installed\n' $1" >> ~/.bashrc
 echo "}" >> ~/.bashrc
+echo "PS1='\[\e[0;32m\]\u@\h \[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '" >> ~/.bashrc
