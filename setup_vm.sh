@@ -17,6 +17,15 @@ then
     sudo yum install terminator
 fi
 
+PERLTIDY_EXISTS=`which perltidy`
+
+if [ $? == 1 ]
+then
+    echo "installing perltidy"
+    sudo yum install perltidy
+fi
+
+
 if [ ! -e /etc/yum.repos.d/chromium-el6.repo ]
 then
     echo "installing chrome"
@@ -24,6 +33,14 @@ then
     sudo wget http://people.centos.org/hughesjr/chromium/6/chromium-el6.repo
     sudo yum install chromium
 fi
+
+# Install pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# Install Lucius
+cd ~/.vim/bundle && \
+git clone https://github.com/jonathanfilip/vim-lucius.git
 
 if [ ! -e ~/.vimrc ]
 then
@@ -39,6 +56,10 @@ then
     echo "noremap ,t :!prove -lv --merge -I/jobsite/t/lib %<CR>" >> ~/.vimrc
     echo "filetype plugin indent on" >> ~/.vimrc
     echo "set laststatus=2" >> ~/.vimrc
+    echo "set t_Co=256" >> ~/.vimrc
+    echo "execute pathogen#infect()" >> ~/.vimrc
+    echo "colorscheme lucius" >> ~/.vimrc
+    echo "LuciusBlack" >> ~/.vimrc
 fi
 
 echo "setting up .bashrc"
@@ -46,4 +67,3 @@ echo "alias updatepc='http_proxy='http://10.10.10.200:8080' PERL5LIB= cpanm --ve
 echo "function perlmodver {" >> ~/.bashrc
 echo "    perl -M$1 -e 'print "Version " . $ARGV[0]->VERSION . " of " . $ARGV[0] . is installed\n' $1" >> ~/.bashrc
 echo "}" >> ~/.bashrc
-echo "PS1='\[\e[0;32m\]\u@\h \[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '" >> ~/.bashrc
