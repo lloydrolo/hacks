@@ -1,0 +1,22 @@
+[user]
+	email = lloyd.roles@jobsite.co.uk
+[push]
+	default = simple
+[alias]
+    a = add .
+    c = commit -m
+    d = diff
+    f = fetch
+    s = status
+    t = tag -a
+    cl = clone
+    co = checkout
+    pt = push --tags
+    cor = checkout release/continuous
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
